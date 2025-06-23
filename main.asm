@@ -20,7 +20,7 @@ section .data
   len_msg_vida_jogador       equ $ - msg_vida_jogador
   msg_vida_parede            db "Vida da Parede: ", 0
   len_msg_vida_parede        equ $ - msg_vida_parede
-  msg_acerto                 db "BOOOM! Voc\xEA acertou! Posicao da parede: ", 0
+  msg_acerto                 db "BOOOM! Você acertou! Posicao da parede: ", 0
   len_msg_acerto             equ $ - msg_acerto
   msg_erro                   db "Errou! A parede agora esta em: ", 0
   len_msg_erro               equ $ - msg_erro
@@ -328,6 +328,8 @@ _itos:
   ret
 
 _gerar_aleatorio:
+  rdtsc                       ; Lê o contador de tempo do processador
+  add [numero_aleatorio], eax ; Mistura com a semente atual
   mov eax, [numero_aleatorio]
   mov ecx, [multiplicador]
   mul ecx
