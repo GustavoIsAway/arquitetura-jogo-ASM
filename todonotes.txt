@@ -1,2 +1,0 @@
-* Identificar bugs
-  * Descubra por que o print do mago acontece 100% do tempo e sempre depois do feitiço.
