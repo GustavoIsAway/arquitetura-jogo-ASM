@@ -1,3 +1,2 @@
-* Testando números:
-  * Transforme-os em inteiros e some-os.
-  * Transforme-os em string e imprima a soma
+* Identificar bugs
+  * Descubra por que o print do mago acontece 100% do tempo e sempre depois do feitiço.
