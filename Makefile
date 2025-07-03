@@ -4,10 +4,10 @@ run: exec
 	./exec
 
 exec: main.o
-	ld -g -m elf_i386 main.o -o exec
+	ld -m elf_i386 -o exec main.o 
 
 main.o: main.asm
-	nasm -f elf32 -g -F dwarf main.asm -o main.o
+	nasm -f elf32 -o main.o main.asm
 
 clean:
 	rm -f exec main.o

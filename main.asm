@@ -10,8 +10,10 @@ section .data
 
   msg_inicial                db "⚔️ THE WIZARD'S WALL ⚔️", 0, 0xA
   len_msg_inicial            equ $ - msg_inicial
-  msg_instrucoes             db "Destrua a parede do mago antes de ser petrificado!", 0, 0xA
+  msg_instrucoes             db "Acerte o centro da parede 3 vezes antes de ser petrificado!", 0xA, 0 
   len_msg_instucoes          equ $ - msg_instrucoes
+  msg_posicao_parede         db "A PAREDE INICIA NA POSIÇÃO 500 500", 0xA, 0
+  len_msg_posicao_parede     equ $ - msg_posicao_parede
   msg_chute_x                db "Chute X: ", 0
   len_msg_chute_x            equ $ - msg_chute_x
   msg_chute_y                db "Chute Y: ", 0
@@ -24,12 +26,13 @@ section .data
   len_msg_acerto             equ $ - msg_acerto
   msg_erro                   db "Errou! A parede agora esta em: ", 0
   len_msg_erro               equ $ - msg_erro
-  msg_mago                   db "O mago lhe acertou com um feitico. Perdeu metade da vida.", 0, 0xA
+  msg_mago                   db "O mago lhe acertou com um feitico. Perdeu metade da vida.", 0xA, 0
   len_msg_mago               equ $ - msg_mago
-  msg_gameover               db "💀Fim de jogo! Você perdeu! O mago lhe petrificou.💀", 0, 0xA
+  msg_gameover               db "💀Fim de jogo! Você perdeu! O mago lhe petrificou.💀", 0xA, 0
   len_msg_gameover           equ $ - msg_gameover
-  msg_win                    db "🏆Fim de jogo! Você venceu! O mago foi derrotado.🏆", 0, 0xA
+  msg_win                    db "🏆Fim de jogo! Você venceu! O mago foi derrotado.🏆", 0xA, 0
   len_msg_win                equ $ - msg_win
+  
 
   ;----------------VARI\xC1VEIS COMUNS----------------;
   pos_parede  dd 500, 500
@@ -62,6 +65,11 @@ _start:
   mov ecx, msg_instrucoes
   mov edx, len_msg_instucoes
   call _stdout
+  
+  mov ecx, msg_posicao_parede
+  mov edx, len_msg_posicao_parede
+  call _stdout
+
 
 _loop_jogo:
   mov dword [max_num], 100
